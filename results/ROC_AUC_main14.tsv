@@ -1,0 +1,3 @@
+gene	n	AUC	CI95_low	CI95_high	direction
+PTGS2	14	0.244897959183673	0	0.571428571428571	higher expression predicts Sepsis
+IL1B	14	0.683673469387755	0.346938775510204	0.959183673469388	higher expression predicts Sepsis

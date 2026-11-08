@@ -1,0 +1,31 @@
+GSE237861 all-14 lung sample quantification log
+Date: 2026-11-07 Asia/Shanghai
+
+Sample selection
+- Used work/metadata/lung_14sample_manifest.tsv, based on project gsm_srr_run.tsv and GEO family SOFT metadata.
+- 14 lung samples: 7 Sepsis and 7 Control.
+- No sample was excluded for depth, alignment rate, or expression.
+
+Commands actually used for new samples
+- <CONDA_ENV_BIN>/hisat2 -p 8 --dta --rna-strandness F -x work/reference/hisat2_index/GRCh38_Ensembl112 -U work/trimmed/SRR*.trimmed.fastq.gz --summary-file work/logs/SRR*.hisat2.summary.txt
+- Piped to <CONDA_ENV_BIN>/samtools sort -@ 4 -m 1G -o work/aligned/SRR*.hisat2.sorted.bam -
+- samtools index -@ 4; samtools quickcheck -v; samtools flagstat
+- <CONDA_ENV_BIN>/featureCounts -T 4 -a work/reference/browser_downloads_20261107/Homo_sapiens.GRCh38.112.gtf -o work/counts/SRR*.s1.counts.txt -t exon -g gene_id -s 1
+- SRR25368441 reused the previously validated BAM and s=1 count output.
+
+Software
+- HISAT2 2.2.3; samtools 1.24; featureCounts 2.1.1; conda environment gse237861_rnaseq.
+
+Results
+- All 14 sorted BAMs, BAI files, count tables, and featureCounts summary files exist.
+- All BAMs passed samtools quickcheck during processing.
+- Matrix: work/counts/matrix/GSE237861_lung14_gene_counts.tsv; 63,140 genes x 14 samples.
+- Annotation: work/counts/matrix/GSE237861_Ensembl112_gene_annotation.tsv.
+- Target mapping: work/counts/matrix/target_gene_mapping.tsv.
+- QC table: work/logs/all14_alignment_count_qc_final.tsv.
+
+Storage
+- Free space before batch: approximately 21 GiB.
+- Free space after batch and matrix: approximately 15 GiB.
+- All BAMs were retained; no SRA, FASTQ, trimmed FASTQ, QC report, index, count file, or prior result was deleted.
+- No HISAT2 index rebuild or downstream statistical/ROC/Figure analysis was performed.

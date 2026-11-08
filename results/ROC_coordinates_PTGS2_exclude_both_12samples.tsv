@@ -1,0 +1,14 @@
+gene	direction_fixed	threshold	sensitivity	specificity	ppv	npv
+PTGS2_exclude_both	higher expression predicts Sepsis	-Inf	1	0	0.416666666666667	NA
+PTGS2_exclude_both	higher expression predicts Sepsis	1.51372952919453	0.8	0	0.363636363636364	0
+PTGS2_exclude_both	higher expression predicts Sepsis	2.97537439325115	0.6	0	0.3	0
+PTGS2_exclude_both	higher expression predicts Sepsis	3.16092179901846	0.6	0.142857142857143	0.333333333333333	0.333333333333333
+PTGS2_exclude_both	higher expression predicts Sepsis	3.23093815310473	0.4	0.142857142857143	0.25	0.25
+PTGS2_exclude_both	higher expression predicts Sepsis	3.43906370954302	0.2	0.142857142857143	0.142857142857143	0.2
+PTGS2_exclude_both	higher expression predicts Sepsis	3.95563013686725	0.2	0.285714285714286	0.166666666666667	0.333333333333333
+PTGS2_exclude_both	higher expression predicts Sepsis	4.51039737652903	0.2	0.428571428571429	0.2	0.428571428571429
+PTGS2_exclude_both	higher expression predicts Sepsis	5.42632785489773	0	0.428571428571429	0	0.375
+PTGS2_exclude_both	higher expression predicts Sepsis	6.17849427655641	0	0.571428571428571	0	0.444444444444444
+PTGS2_exclude_both	higher expression predicts Sepsis	6.3784571358062	0	0.714285714285714	0	0.5
+PTGS2_exclude_both	higher expression predicts Sepsis	6.53722397188352	0	0.857142857142857	0	0.545454545454545
+PTGS2_exclude_both	higher expression predicts Sepsis	Inf	0	1	NA	0.583333333333333

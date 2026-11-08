@@ -1,0 +1,33 @@
+calcNormFactors has been renamed to normLibSizes
+Warning messages:
+1: In ci.auc.roc(r, method = "bootstrap", boot.n = 2000, stratified = TRUE,  :
+  Progress bars are deprecated in pROC 1.19. Ignoring 'progress' argument
+2: In ci.auc.roc(r, method = "bootstrap", boot.n = 2000, stratified = TRUE,  :
+  Progress bars are deprecated in pROC 1.19. Ignoring 'progress' argument
+calcNormFactors has been renamed to normLibSizes
+calcNormFactors has been renamed to normLibSizes
+calcNormFactors has been renamed to normLibSizes
+calcNormFactors has been renamed to normLibSizes
+Warning messages:
+1: In ci.auc.roc(r, method = "bootstrap", boot.n = 2000, stratified = TRUE,  :
+  Progress bars are deprecated in pROC 1.19. Ignoring 'progress' argument
+2: In ci.auc.roc(r, method = "bootstrap", boot.n = 2000, stratified = TRUE,  :
+  Progress bars are deprecated in pROC 1.19. Ignoring 'progress' argument
+3: In ci.auc.roc(r, method = "bootstrap", boot.n = 2000, stratified = TRUE,  :
+  Progress bars are deprecated in pROC 1.19. Ignoring 'progress' argument
+4: In ci.auc.roc(r, method = "bootstrap", boot.n = 2000, stratified = TRUE,  :
+  Progress bars are deprecated in pROC 1.19. Ignoring 'progress' argument
+5: In ci.auc.roc(r, method = "bootstrap", boot.n = 2000, stratified = TRUE,  :
+  Progress bars are deprecated in pROC 1.19. Ignoring 'progress' argument
+6: In ci.auc.roc(r, method = "bootstrap", boot.n = 2000, stratified = TRUE,  :
+  Progress bars are deprecated in pROC 1.19. Ignoring 'progress' argument
+7: In ci.auc.roc(r, method = "bootstrap", boot.n = 2000, stratified = TRUE,  :
+  Progress bars are deprecated in pROC 1.19. Ignoring 'progress' argument
+8: In ci.auc.roc(r, method = "bootstrap", boot.n = 2000, stratified = TRUE,  :
+  Progress bars are deprecated in pROC 1.19. Ignoring 'progress' argument
+calcNormFactors has been renamed to normLibSizes
+calcNormFactors has been renamed to normLibSizes
+calcNormFactors has been renamed to normLibSizes
+calcNormFactors has been renamed to normLibSizes
+Completed <PUBLISHED_PACKAGE>/results \nRedrawn Figure 4G using saved TMM log2-CPM values; no statistics recalculated.
+Redrawn Figure 4H without ROC backtracking segments. AUC values were not recalculated.

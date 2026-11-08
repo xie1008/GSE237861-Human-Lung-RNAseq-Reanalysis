@@ -1,0 +1,90 @@
+GSE237861 reference download and verification log
+Date: 2026-11-07 (Asia/Shanghai)
+
+Project: <SOURCE_PROJECT>
+Environment: gse237861_rnaseq
+HISAT2 version observed: 2.2.3 (64-bit)
+
+Checks performed
+- work/reference contained GRCh38.primary_assembly.genome.fa.gz (845635028 bytes) and a .aria2 state file.
+- gzip -t failed with: data stream error / uncompress failed.
+- Process listing was unavailable in this managed environment (sysmond service not found; pgrep could not access process list). No active aria2 download was observed.
+- The invalid same-sized file was preserved as:
+  GRCh38.primary_assembly.genome.fa.gz.incomplete-corrupt-20261107
+- The stale aria2 state was preserved as:
+  GRCh38.primary_assembly.genome.fa.gz.aria2.stale-20261107
+
+Official source verified
+- Base URL: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_49
+- FASTA: GRCh38.primary_assembly.genome.fa.gz
+- Primary-assembly GTF: gencode.v49.primary_assembly.annotation.gtf.gz
+- EBI directory headers reported FASTA Content-Length 845635028 and GTF Content-Length 93374019.
+- EBI MD5SUMS reported:
+  1c73e18ea14fec14fe7eca5a48755de3  GRCh38.primary_assembly.genome.fa.gz
+  8486a6bdcd27a8a7a08232d01cc13b77  gencode.v49.primary_assembly.annotation.gtf.gz
+- No official SHA-256 values were present in the EBI MD5SUMS or _README.TXT fetched during this run; SHA-256 must be computed after complete files are obtained.
+
+Commands actually executed
+1. curl -I -L --fail --silent --show-error "$base/GRCh38.primary_assembly.genome.fa.gz"
+2. curl -I -L --fail --silent --show-error "$base/gencode.v49.annotation.gtf.gz"
+3. curl -L --fail --silent --show-error "$base/" | rg -i 'GRCh38|gtf|md5|sha|README'
+4. curl -L --fail --silent --show-error "$base/MD5SUMS" -o /tmp/gencode49.MD5SUMS
+5. curl -L --fail --silent --show-error "$base/_README.TXT" -o /tmp/gencode49.README
+6. A direct curl download was attempted to work/reference/*.part, then stopped because EBI throughput was extremely low.
+7. Eight official EBI HTTP range requests were attempted in parallel into work/reference/fa_chunks_20261107/, then stopped due to the same severe throttling. The partial chunks and concatenated .part file are retained for continuation.
+
+Current status
+- NOT COMPLETE: FASTA and GTF have not yet passed gzip/MD5/SHA-256 verification.
+- No HISAT2 alignment was started.
+- No raw FASTQ, SRA, or completed analysis file was deleted or modified.
+
+Follow-up candidate-source audit (2026-11-07)
+- Disk space check: 53 GiB available on the project volume (228 GiB total, 75% used). This is not sufficient for a comfortable genome + decompressed FASTA/GTF + HISAT2 index workflow, which should be planned with additional free space.
+- Process check: `ps` was blocked by managed macOS permissions; no aria2/curl process was visible through the available process checks. Existing partial files and the prior log were preserved.
+- Ensembl candidate headers:
+  https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
+  Content-Length 881964081; Accept-Ranges: bytes; GRCh38 primary-assembly naming.
+  https://ftp.ensembl.org/pub/release-112/gtf/homo_sapiens/Homo_sapiens.GRCh38.112.gtf.gz
+  Content-Length 55529204; Accept-Ranges: bytes.
+- UCSC candidate header:
+  https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz
+  Content-Length 983659424; Accept-Ranges: bytes; hg38 naming requires careful chr-prefix compatibility checking against the GTF.
+- NCBI candidate header:
+  https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.29_GRCh38.p14/GCA_000001405.29_GRCh38.p14_genomic.fna.gz
+  Content-Length 973047610; GRCh38.p14 assembly, but NCBI accession/header conventions differ from GENCODE and require explicit sequence-ID compatibility validation.
+- Small-range test: the Ensembl FASTA request for bytes 0-1048575 yielded only 405504 bytes after approximately 30 seconds. The test was stopped before downloading additional large files. No candidate passed the speed/compatibility threshold for adoption.
+- No alternate source was promoted into work/reference. No FASTA/GTF pair passed gzip, official checksum, and sequence-ID compatibility verification.
+
+Browser-file inspection (2026-11-07)
+- Browser-provided files were found in <LOCAL_DOWNLOADS> and copied, without modification, to work/reference/browser_downloads_20261107/.
+- Homo_sapiens.GRCh38.dna.primary_assembly.fa contains exactly one sequence, ID `1`, length 248956422. It is a chromosome-1 file despite its misleading filename.
+- Homo_sapiens.GRCh38.dna.chromosome.2.fa contains exactly one sequence, ID `2`, length 242193529.
+- Both FASTA headers identify GRCh38 and REF.
+- Browser GTF header identifies GRCh38.p14, GRCh38, GCA_000001405.29, gene build last updated 2023-12; the file tail ends cleanly on KI270713.1. It remains a candidate, not a final input, until official compressed-file completeness/checksum is reconciled.
+- Browser-file SHA-256 values:
+  69d1b92c83b9390b26e34986e92afb24680cdc2b44866a0cb356b2087f5841c1  chromosome-1 file
+  5890d81dbfcfdda99eac4bfe7a6378b38bed583c101ede6ee0a02b2ec5b51961  chromosome-2 file
+  32c705fa52e13d83dd0ac020532ed588a2ed1e6922a38cd546e873c8b9a555a0  GTF file
+- Ensembl Release 112 official FASTA directory lists primary assembly as exactly the 22 autosomes plus X, Y, and MT chromosome files; no additional non-chromosome sequences are part of this primary-assembly set. The official full primary-assembly URL remains https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz.
+- Exact missing chromosome URLs and statuses are recorded in ENSEMBL112_primary_assembly_download_manifest.tsv.
+- No final merged reference FASTA was created because 23 of 25 primary-assembly component sequences are still missing. No HISAT2 index, alignment, or counting was started.
+
+Primary-assembly composition correction (2026-11-07)
+- Ensembl Release 112 README states that primary assembly contains all top-level sequence regions excluding haplotypes and patches.
+- The official `Homo_sapiens.GRCh38.dna.nonchromosomal.fa.gz` file is therefore a required primary-assembly component; it contains unassigned/nonchromosomal top-level sequences and must not be omitted.
+- Assembly inventory for GCA_000001405.29 reports 194 primary top-level sequences: 25 chromosome sequences plus 169 scaffold/nonchromosomal sequences, total 3,099,750,718 bp; scaffold/nonchromosomal total 11,464,317 bp.
+- ALT, patch, haplotype files and `dna.toplevel.fa.gz` are excluded from the primary-assembly plan.
+- Manifest updated to include the nonchromosomal official URL. No large download, merge, or HISAT2 operation was performed in this step.
+
+Final browser-download verification and merge (2026-11-07)
+- Found all 24 newly downloaded uncompressed FASTA components in <LOCAL_DOWNLOADS>: chr3-22, X, Y, MT, and nonchromosomal. Existing chr1, chr2 and GTF were reused from work/reference/browser_downloads_20261107/ without duplicate copying.
+- Component FASTA validation: 25 chromosome files plus nonchromosomal file; all expected IDs and lengths matched the Ensembl/GRCh38 inventory; 194 sequences total; 3,099,750,718 bases total; zero invalid bases; zero empty sequences.
+- Nonchromosomal validation: 169 sequences and 11,464,317 bases.
+- Merged in order 1-22, X, Y, MT, nonchromosomal using validate_and_merge_ensembl112.sh.
+- Final merged FASTA: work/reference/Homo_sapiens.GRCh38.dna.primary_assembly.fa; size 3,151,425,851 bytes; SHA-256 bba3da8e76fc9d0680af72498e5d22157b468e8cc5c9ec22a260a646fbdb0365.
+- Final FASTA validation: 194 sequences, zero duplicate IDs, zero invalid/empty sequences, total 3,099,750,718 bases.
+- GTF validation: 3,464,554 data lines, 5 comment/header lines, zero malformed records; all 47 distinct GTF sequence IDs were present in the merged FASTA. The 147 FASTA sequences without GTF records are expected unannotated primary-assembly scaffolds and are not an incompatibility.
+- GTF: work/reference/browser_downloads_20261107/Homo_sapiens.GRCh38.112.gtf; SHA-256 32c705fa52e13d83dd0ac020532ed588a2ed1e6922a38cd546e873c8b9a555a0.
+- The downloaded files were uncompressed browser files, so gzip tests were not applicable. Ensembl's official CHECKSUMS file reports checksums for the compressed .fa.gz/.gtf.gz objects; those compressed-object checksums cannot be directly compared to these uncompressed browser files. Local SHA-256 values above were recorded instead.
+- Disk after merge: approximately 32 GiB free. No raw SRA/FASTQ, trimmed FASTQ, QC report, fastp report, code, or prior analysis was deleted or modified.
+- HISAT2 index construction, alignment and featureCounts were not started.

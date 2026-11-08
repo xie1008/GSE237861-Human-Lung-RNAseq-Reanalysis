@@ -1,0 +1,41 @@
+GSE237861 reference/index/single-sample test log
+Date: 2026-11-07 Asia/Shanghai
+
+Reference inputs
+- FASTA: work/reference/Homo_sapiens.GRCh38.dna.primary_assembly.fa
+- FASTA SHA-256: bba3da8e76fc9d0680af72498e5d22157b468e8cc5c9ec22a260a646fbdb0365
+- GTF: work/reference/browser_downloads_20261107/Homo_sapiens.GRCh38.112.gtf
+- GTF SHA-256: 32c705fa52e13d83dd0ac020532ed588a2ed1e6922a38cd546e873c8b9a555a0
+- FASTA inventory: 194 sequences, 3,099,750,718 bases.
+
+Software
+- hisat2 2.2.3, samtools 1.24, featureCounts 2.1.1
+- Conda environment: gse237861_rnaseq
+
+Index build
+- Command: hisat2-build -p 8 work/reference/Homo_sapiens.GRCh38.dna.primary_assembly.fa work/reference/hisat2_index/GRCh38_Ensembl112
+- Completed successfully on 2026-11-07 20:04 CST; elapsed real time 855.91 s.
+- Index validation: all eight .ht2 files present; hisat2-inspect -s completed and reported index version 2.2.3 and 194 reference sequence entries.
+- Index directory: work/reference/hisat2_index/
+
+Single-sample alignment
+- Input: work/trimmed/SRR25368441.trimmed.fastq.gz (single-end)
+- Command: hisat2 -p 8 --dta --rna-strandness F -x work/reference/hisat2_index/GRCh38_Ensembl112 -U work/trimmed/SRR25368441.trimmed.fastq.gz --summary-file work/logs/SRR25368441.hisat2.summary.txt | samtools sort -@ 4 -m 1G -o work/aligned/SRR25368441.hisat2.sorted.bam -
+- HISAT2 summary: 7,789,619 reads; aligned exactly once 5,000,046 (64.19%); aligned >1 times 980,550 (12.59%); aligned 0 times 1,809,023 (23.22%); overall alignment 76.78%.
+- Sorted BAM: work/aligned/SRR25368441.hisat2.sorted.bam; BAM index created; samtools quickcheck passed.
+- BAM size: 320,323,927 bytes; BAI size: 4,630,120 bytes.
+
+Library-strandedness basis
+- Lexogen QuantSeq FWD official documentation says the protocol is strand-specific, generates one fragment close to the transcript 3-prime end, and Read 1 directly reflects the mRNA sequence. The FWD orientation therefore supports featureCounts -s 1 (same-strand counting); -s 0 and -s 2 were retained as empirical controls.
+
+featureCounts tests
+- Common parameters: featureCounts -T 4 -a GTF -t exon -g gene_id BAM; single-end mode; multimapping and multi-overlap reads not counted.
+- -s 0: Assigned 2,747,326 (26.8% of 10,246,567 alignments); Unassigned_NoFeatures 2,000,029; Unassigned_Ambiguity 252,691; Unassigned_Unmapped 1,809,023; detected genes 21,020.
+- -s 1: Assigned 2,888,097 (28.2%); Unassigned_NoFeatures 2,038,734; Unassigned_Ambiguity 73,215; Unassigned_Unmapped 1,809,023; detected genes 19,482.
+- -s 2: Assigned 214,016 (2.1%); Unassigned_NoFeatures 4,779,994; Unassigned_Ambiguity 6,036; Unassigned_Unmapped 1,809,023; detected genes 7,404.
+- Recommended setting for this QuantSeq FWD test: featureCounts -s 1. This is supported by the library chemistry and the strong reduction in ambiguity versus -s 0; -s 2 is clearly incompatible. The highest assigned fraction alone was not used as the criterion.
+
+Storage and scope
+- Free space before index: approximately 32 GiB; minimum observed during index build: approximately 23 GiB; after BAM/counts: approximately 21 GiB.
+- No raw SRA, FASTQ, trimmed FASTQ, QC/fastp report, or prior analysis was deleted or modified.
+- Only SRR25368441 was aligned. No remaining sample was started; no downstream Figure 4G/H work was started.

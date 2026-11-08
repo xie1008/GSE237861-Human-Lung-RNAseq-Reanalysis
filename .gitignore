@@ -1,0 +1,25 @@
+# Raw and intermediate sequencing/alignment files are intentionally excluded.
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.sra
+*.bam
+*.bai
+*.sam
+*.ht2
+*.ht2l
+*.fa
+*.fa.gz
+*.fasta
+*.fasta.gz
+*.gtf
+*.gtf.gz
+work/
+aligned/
+sra/
+reference/
+tmp/
+cache/
+.DS_Store
+

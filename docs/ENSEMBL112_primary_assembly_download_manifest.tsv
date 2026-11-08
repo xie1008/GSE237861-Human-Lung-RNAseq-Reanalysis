@@ -1,0 +1,28 @@
+order	filename	URL	status
+1	Homo_sapiens.GRCh38.dna.chromosome.1.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.1.fa.gz	present uncompressed in browser Downloads
+2	Homo_sapiens.GRCh38.dna.chromosome.2.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.2.fa.gz	present uncompressed in browser Downloads
+3	Homo_sapiens.GRCh38.dna.chromosome.3.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.3.fa.gz	missing
+4	Homo_sapiens.GRCh38.dna.chromosome.4.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.4.fa.gz	missing
+5	Homo_sapiens.GRCh38.dna.chromosome.5.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.5.fa.gz	missing
+6	Homo_sapiens.GRCh38.dna.chromosome.6.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.6.fa.gz	missing
+7	Homo_sapiens.GRCh38.dna.chromosome.7.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.7.fa.gz	missing
+8	Homo_sapiens.GRCh38.dna.chromosome.8.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.8.fa.gz	missing
+9	Homo_sapiens.GRCh38.dna.chromosome.9.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.9.fa.gz	missing
+10	Homo_sapiens.GRCh38.dna.chromosome.10.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.10.fa.gz	missing
+11	Homo_sapiens.GRCh38.dna.chromosome.11.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens.GRCh38.dna.chromosome.11.fa.gz	missing
+12	Homo_sapiens.GRCh38.dna.chromosome.12.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens.GRCh38.dna.chromosome.12.fa.gz	missing
+13	Homo_sapiens.GRCh38.dna.chromosome.13.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens.GRCh38.dna.chromosome.13.fa.gz	missing
+14	Homo_sapiens.GRCh38.dna.chromosome.14.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.14.fa.gz	missing
+15	Homo_sapiens.GRCh38.dna.chromosome.15.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.15.fa.gz	missing
+16	Homo_sapiens.GRCh38.dna.chromosome.16.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.16.fa.gz	missing
+17	Homo_sapiens.GRCh38.dna.chromosome.17.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.17.fa.gz	missing
+18	Homo_sapiens.GRCh38.dna.chromosome.18.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.18.fa.gz	missing
+19	Homo_sapiens.GRCh38.dna.chromosome.19.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.19.fa.gz	missing
+20	Homo_sapiens.GRCh38.dna.chromosome.20.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.20.fa.gz	missing
+21	Homo_sapiens.GRCh38.dna.chromosome.21.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.21.fa.gz	missing
+22	Homo_sapiens.GRCh38.dna.chromosome.22.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.22.fa.gz	missing
+X	Homo_sapiens.GRCh38.dna.chromosome.X.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.X.fa.gz	missing
+Y	Homo_sapiens.GRCh38.dna.chromosome.Y.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.Y.fa.gz	missing
+MT	Homo_sapiens.GRCh38.dna.chromosome.MT.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.MT.fa.gz	missing
+NC	Homo_sapiens.GRCh38.dna.nonchromosomal.fa.gz	https://ftp.ensembl.org/pub/release-112/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.nonchromosomal.fa.gz	missing; required primary-assembly component
+GTF	Homo_sapiens.GRCh38.112.gtf.gz	https://ftp.ensembl.org/pub/release-112/gtf/homo_sapiens/Homo_sapiens.GRCh38.112.gtf.gz	present uncompressed in browser Downloads

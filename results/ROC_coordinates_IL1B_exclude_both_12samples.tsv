@@ -1,0 +1,13 @@
+gene	direction_fixed	threshold	sensitivity	specificity	ppv	npv
+IL1B_exclude_both	higher expression predicts Sepsis	-Inf	1	0	0.416666666666667	NA
+IL1B_exclude_both	higher expression predicts Sepsis	-0.165197600690998	0.8	0.142857142857143	0.4	0.5
+IL1B_exclude_both	higher expression predicts Sepsis	0.225128292900972	0.6	0.142857142857143	0.333333333333333	0.333333333333333
+IL1B_exclude_both	higher expression predicts Sepsis	0.362441808421122	0.6	0.285714285714286	0.375	0.5
+IL1B_exclude_both	higher expression predicts Sepsis	0.476579990999235	0.6	0.428571428571429	0.428571428571429	0.6
+IL1B_exclude_both	higher expression predicts Sepsis	0.792008210050849	0.6	0.571428571428571	0.5	0.666666666666667
+IL1B_exclude_both	higher expression predicts Sepsis	1.30196422549778	0.4	0.571428571428571	0.4	0.571428571428571
+IL1B_exclude_both	higher expression predicts Sepsis	1.53017332285489	0.4	0.714285714285714	0.5	0.625
+IL1B_exclude_both	higher expression predicts Sepsis	1.76261340884344	0.4	0.857142857142857	0.666666666666667	0.666666666666667
+IL1B_exclude_both	higher expression predicts Sepsis	2.13455129890565	0.4	1	1	0.7
+IL1B_exclude_both	higher expression predicts Sepsis	3.22606250516873	0.2	1	1	0.636363636363636
+IL1B_exclude_both	higher expression predicts Sepsis	Inf	0	1	NA	0.583333333333333
